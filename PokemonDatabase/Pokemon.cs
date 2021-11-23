@@ -28,12 +28,12 @@ namespace PokemonDatabase
         Fairy
     }
 
-    public class Item
+    public class Pokemon
     {
         public string name;
         public PokemonType type;
 
-        public Item(string name, PokemonType type)
+        public Pokemon(string name, PokemonType type)
         {
             this.name = name;
             this.type = type;

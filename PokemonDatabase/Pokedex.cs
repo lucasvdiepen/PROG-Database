@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public class Database
+    public class Pokedex
     {
-        private List<Item> _items;
+        private List<Pokemon> _items;
 
-        public Database()
+        public Pokedex()
         {
-            _items = new List<Item>();
+            _items = new List<Pokemon>();
         }
 
-        public void AddItem(Item item)
+        public void AddItem(Pokemon item)
         {
             _items.Add(item);
         }
 
-        public List<Item> GetAllItems()
+        public List<Pokemon> GetAllItems()
         {
             return _items;
         }

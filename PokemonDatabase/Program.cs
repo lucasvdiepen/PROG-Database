@@ -7,14 +7,14 @@ namespace PokemonDatabase
     {
         static void Main(string[] args)
         {
-            Database database = new Database();
+            Pokedex database = new Pokedex();
 
-            database.AddItem(new Item("Charizard", PokemonType.Fire));
-            database.AddItem(new Item("Blastoise" ,PokemonType.Water));
+            database.AddItem(new Pokemon("Charizard", PokemonType.Fire));
+            database.AddItem(new Pokemon("Blastoise", PokemonType.Water));
 
-            List<Item> pokemons = database.GetAllItems();
+            List<Pokemon> pokemons = database.GetAllItems();
 
-            foreach(Item pokemon in pokemons)
+            foreach(Pokemon pokemon in pokemons)
             {
                 Console.WriteLine(pokemon.name);
             }
