@@ -30,13 +30,17 @@ namespace PokemonDatabase
 
     public class Pokemon
     {
+        public int id;
         public string name;
-        public PokemonType type;
+        public List<PokemonType> type;
+        public PokemonStats stats;
 
-        public Pokemon(string name, PokemonType type)
+        public Pokemon(int id, string name, List<PokemonType> type, PokemonStats stats)
         {
+            this.id = id;
             this.name = name;
             this.type = type;
+            this.stats = stats;
         }
     }
 }
