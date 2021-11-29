@@ -10,7 +10,7 @@ namespace PokemonDatabase
             Database database = new Database();
 
             database.AddItem(new Item("Charizard", PokemonType.Fire));
-            database.AddItem(new Item("Blastoise" ,PokemonType.Water));
+            database.AddItem(new Item("Blastoise", PokemonType.Water));
 
             List<Item> pokemons = database.GetAllItems();
 
