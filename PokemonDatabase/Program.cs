@@ -9,14 +9,12 @@ namespace PokemonDatabase
         {
             Pokedex database = new Pokedex();
 
-            database.AddItem(new Pokemon("Charizard", PokemonType.Fire));
-            database.AddItem(new Pokemon("Blastoise", PokemonType.Water));
+            database.AddItem(new Pokemon(1, "Charizard", new List<PokemonType>() { PokemonType.Fire }, new PokemonStats(80, 75, 90, 50, 70, 40, 55)));
+            database.AddItem(new Pokemon(2, "Blastoise", new List<PokemonType>() { PokemonType.Water }, new PokemonStats(75, 80, 80, 70, 65, 80, 75)));
 
-            List<Pokemon> pokemons = database.GetAllItems();
-
-            foreach(Pokemon pokemon in pokemons)
+            while(true)
             {
-                Console.WriteLine(pokemon.name);
+                database.RunInput();
             }
         }
     }

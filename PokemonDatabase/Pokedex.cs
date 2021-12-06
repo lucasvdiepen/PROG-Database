@@ -24,5 +24,32 @@ namespace PokemonDatabase
         {
             return _items;
         }
+
+        public void PrintAllItems()
+        {
+            foreach(Pokemon pokemon in GetAllItems())
+            {
+                Console.WriteLine(pokemon.name);
+            }
+        }
+
+        public void PrintFilterdItems(FilterSearch filter)
+        {
+
+        }
+
+        public void RunInput()
+        {
+            if (Console.KeyAvailable)
+            {
+                switch (Console.ReadKey(true).Key)
+                {
+                    case ConsoleKey.A:
+                        Console.Clear();
+                        PrintAllItems();
+                        break;
+                }
+            }
+        }
     }
 }
