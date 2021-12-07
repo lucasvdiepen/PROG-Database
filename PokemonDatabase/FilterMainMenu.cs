@@ -20,6 +20,10 @@ namespace PokemonDatabase
                 case "Name":
                     Debug.WriteLine("Name was selected");
                     break;
+                case "Type":
+                    new FilterTypeMenu();
+                    PrintMenu();
+                    break;
             }
         }
 

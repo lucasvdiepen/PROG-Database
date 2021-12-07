@@ -33,11 +33,6 @@ namespace PokemonDatabase
             }
         }
 
-        public void PrintFilterdItems(FilterSearch filter)
-        {
-
-        }
-
         public void RunInput()
         {
             if (Console.KeyAvailable)

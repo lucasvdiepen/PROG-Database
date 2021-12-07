@@ -9,7 +9,7 @@ namespace PokemonDatabase
     public abstract class Menu
     {
         private string[] menuItems;
-        private int selectedId;
+        internal int selectedId;
 
         public Menu(string[] menuItems)
         {
@@ -21,15 +21,19 @@ namespace PokemonDatabase
 
         public abstract void Select(string menuItem);
 
+        //Prints all menu items with arrow
         public virtual void PrintMenu()
         {
             for(int i = 0; i < menuItems.Length; i++)
             {
-                if (selectedId == i) Console.WriteLine(">   " + menuItems[i]);
-                else Console.WriteLine("    " + menuItems[i]);
+                if (selectedId == i) Console.Write(">");
+                else Console.Write(" ");
+                
+                Console.WriteLine("   " + menuItems[i]);
             }
         }
 
+        //Starts menu input read
         public void StartMenu()
         {
             while(true)
@@ -41,6 +45,7 @@ namespace PokemonDatabase
             }
         }
 
+        //Checks standard menu input
         public virtual bool RunInput(ConsoleKey key)
         {
             switch (key)
