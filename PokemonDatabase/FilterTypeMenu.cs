@@ -8,12 +8,10 @@ namespace PokemonDatabase
 {
     public class FilterTypeMenu : Menu
     {
-        private static string[] menuItems = Enum.GetNames(typeof(PokemonType));
-
         //Enter presses
-        public override void Select(string menuItem)
+        public override void Select(MenuItem menuItem)
         {
-            PokemonType selectedType = (PokemonType)Enum.Parse(typeof(PokemonType), menuItem);
+            PokemonType selectedType = (PokemonType)Enum.Parse(typeof(PokemonType), menuItem.itemName);
 
             if (FilterSearch.types.Contains(selectedType)) FilterSearch.types.Remove(selectedType);
             else FilterSearch.types.Add(selectedType);
@@ -22,7 +20,7 @@ namespace PokemonDatabase
         }
 
         //Initialize
-        public FilterTypeMenu() : base(menuItems)
+        public FilterTypeMenu() : base(Enum.GetNames(typeof(PokemonType)))
         {
 
         }
@@ -36,8 +34,8 @@ namespace PokemonDatabase
                 if (selectedId == i) Console.Write(">");
                 else Console.Write(" ");
 
-                if (FilterSearch.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i]))) Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("  " + menuItems[i]);
+                if (FilterSearch.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i].itemName))) Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("  " + menuItems[i].itemName);
                 Console.ResetColor();
             }
         }

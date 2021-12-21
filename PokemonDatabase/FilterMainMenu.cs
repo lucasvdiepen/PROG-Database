@@ -9,13 +9,10 @@ namespace PokemonDatabase
 {
     public class FilterMainMenu : Menu
     {
-        //Menu items for this menu
-        private static string[] menuItems = { "Name", "Type" };
-
         //Enter presses
-        public override void Select(string menuItem)
+        public override void Select(MenuItem menuItem)
         {
-            switch(menuItem)
+            switch(menuItem.itemName)
             {
                 case "Name":
                     Debug.WriteLine("Name was selected");
@@ -28,7 +25,7 @@ namespace PokemonDatabase
         }
 
         //Initialize
-        public FilterMainMenu() : base(menuItems)
+        public FilterMainMenu() : base(new string[] { "Name", "Type" })
         {
 
         }

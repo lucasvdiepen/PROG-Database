@@ -8,18 +8,37 @@ namespace PokemonDatabase
 {
     public abstract class Menu
     {
-        private string[] menuItems;
+        internal MenuItem[] menuItems;
         internal int selectedId;
 
         public Menu(string[] menuItems)
         {
+            MenuItem[] newMenuItems = new MenuItem[menuItems.Length];
+
+            for(int i = 0; i < menuItems.Length; i++)
+            {
+                newMenuItems[i] = new MenuItem(menuItems[i]);
+            }
+
+            this.menuItems = newMenuItems;
+
+            Setup();
+        }
+
+        public Menu(MenuItem[] menuItems)
+        {
             this.menuItems = menuItems;
 
+            Setup();
+        }
+
+        private void Setup()
+        {
             PrintMenu();
             StartMenu();
         }
 
-        public abstract void Select(string menuItem);
+        public abstract void Select(MenuItem menuItem);
 
         //Prints all menu items with arrow
         public virtual void PrintMenu()
@@ -29,7 +48,7 @@ namespace PokemonDatabase
                 if (selectedId == i) Console.Write(">");
                 else Console.Write(" ");
                 
-                Console.WriteLine("   " + menuItems[i]);
+                Console.WriteLine("   " + menuItems[i].itemName);
             }
         }
 
