@@ -13,9 +13,14 @@ namespace PokemonDatabase
 
         public FilterNameMenu()
         {
+            Setup();
+        }
+
+        public override void Setup()
+        {
             PrintMenu();
 
-            Setup();
+            base.Setup();
         }
 
         public override void PrintMenu()
