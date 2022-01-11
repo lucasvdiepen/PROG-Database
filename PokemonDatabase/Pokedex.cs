@@ -33,6 +33,16 @@ namespace PokemonDatabase
             }
         }
 
+        public Pokemon GetPokemonById(int id)
+        {
+            for(int i = 0; i < _items.Count; i++)
+            {
+                if (_items[i].id == id) return _items[i];
+            }
+
+            return null;
+        }
+
         public void RunInput()
         {
             if (Console.KeyAvailable)

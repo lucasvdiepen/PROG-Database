@@ -13,6 +13,8 @@ namespace PokemonDatabase
 
         public SelectMenu(string[] menuItems)
         {
+            if(menuItems != null && menuItems.Length <= 0) return;
+
             //Convert string array to menu items
             MenuItem[] newMenuItems = new MenuItem[menuItems.Length];
 
@@ -28,6 +30,8 @@ namespace PokemonDatabase
 
         public SelectMenu(MenuItem[] menuItems)
         {
+            if(menuItems != null && menuItems.Length <= 0) return;
+
             this.menuItems = menuItems;
 
             Setup();

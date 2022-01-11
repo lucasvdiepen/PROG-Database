@@ -6,16 +6,39 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public static class FIlterSearch
+    public static class FilterSearch
     {
+        public static FilterSearchConfig config = new FilterSearchConfig();
+
         public static MenuItem[] SearchByName(string name)
         {
-            return null;
+            List<Pokemon> pokemons = Program.database.GetAllItems();
+            List<MenuItem> menuItemsList = new List<MenuItem>();
+
+            foreach(Pokemon pokemon in pokemons)
+            {
+                if(FindInString(pokemon.name, name))
+                {
+                    menuItemsList.Add(new MenuItem(pokemon.name, pokemon.id));
+                }
+            }
+
+            return menuItemsList.ToArray();
         }
 
         public static MenuItem[] SearchByConfig()
         {
             return null;
+        }
+
+        private static bool FindInString(string s, string input)
+        {
+            if(s.ToLower().Contains(input.ToLower()))
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

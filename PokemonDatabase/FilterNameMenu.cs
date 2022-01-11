@@ -28,7 +28,7 @@ namespace PokemonDatabase
             Console.Clear();
             Console.WriteLine("Press enter to search");
             Console.WriteLine("");
-            Console.Write("Name: ");
+            Console.Write("Name: " + input);
         }
 
         public override bool RunInput(ConsoleKeyInfo keyInfo)
@@ -36,7 +36,8 @@ namespace PokemonDatabase
             switch(keyInfo.Key)
             {
                 case ConsoleKey.Enter:
-                    Debug.WriteLine("Should search by name now");
+                    new PokemonsMenu(FilterSearch.SearchByName(input));
+                    PrintMenu();
                     break;
                 case ConsoleKey.Backspace:
                     if(input.Length > 0)

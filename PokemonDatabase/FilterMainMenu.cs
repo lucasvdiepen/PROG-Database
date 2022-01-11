@@ -9,6 +9,8 @@ namespace PokemonDatabase
 {
     public class FilterMainMenu : SelectMenu
     {
+        public static FilterSearchConfig filterSearch;
+
         //Enter presses
         public override void Select(MenuItem menuItem)
         {
@@ -28,7 +30,7 @@ namespace PokemonDatabase
         //Initialize
         public FilterMainMenu() : base(new string[] { "Name", "Type" })
         {
-
+            filterSearch = new FilterSearchConfig();
         }
 
         //Extra prints for this menu
