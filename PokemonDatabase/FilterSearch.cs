@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public static class FilterSearch
+    public static class FIlterSearch
     {
-        public static List<PokemonType> types;
-
-        public static void Setup()
+        public static MenuItem[] SearchByName(string name)
         {
-            types = new List<PokemonType>();
+            return null;
         }
 
-        public static void Search()
+        public static MenuItem[] SearchByConfig()
         {
-
+            return null;
         }
     }
 }

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public class FilterTypeMenu : Menu
+    public class FilterTypeMenu : SelectMenu
     {
         //Enter presses
         public override void Select(MenuItem menuItem)
         {
             PokemonType selectedType = (PokemonType)Enum.Parse(typeof(PokemonType), menuItem.itemName);
 
-            if (FilterSearch.types.Contains(selectedType)) FilterSearch.types.Remove(selectedType);
-            else FilterSearch.types.Add(selectedType);
+            if (FilterSearchConfig.types.Contains(selectedType)) FilterSearchConfig.types.Remove(selectedType);
+            else FilterSearchConfig.types.Add(selectedType);
 
             PrintMenu();
         }
@@ -34,7 +34,7 @@ namespace PokemonDatabase
                 if (selectedId == i) Console.Write(">");
                 else Console.Write(" ");
 
-                if (FilterSearch.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i].itemName))) Console.ForegroundColor = ConsoleColor.Green;
+                if (FilterSearchConfig.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i].itemName))) Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("  " + menuItems[i].itemName);
                 Console.ResetColor();
             }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public class FilterMainMenu : Menu
+    public class FilterMainMenu : SelectMenu
     {
         //Enter presses
         public override void Select(MenuItem menuItem)
@@ -15,7 +15,8 @@ namespace PokemonDatabase
             switch(menuItem.itemName)
             {
                 case "Name":
-                    Debug.WriteLine("Name was selected");
+                    new FilterNameMenu();
+                    PrintMenu();
                     break;
                 case "Type":
                     new FilterTypeMenu();
@@ -40,16 +41,16 @@ namespace PokemonDatabase
         }
 
         //Extra input for this menu
-        public override bool RunInput(ConsoleKey key)
+        public override bool RunInput(ConsoleKeyInfo keyInfo)
         {
-            switch(key)
+            switch(keyInfo.Key)
             {
                 case ConsoleKey.F:
                     Debug.WriteLine("Should search now");
                     break;
             }
 
-            return base.RunInput(key);
+            return base.RunInput(keyInfo);
         }
     }
 }
