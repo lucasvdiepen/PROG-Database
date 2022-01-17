@@ -24,11 +24,14 @@ namespace PokemonDatabase
                     new FilterTypeMenu();
                     PrintMenu();
                     break;
+                case "Reset":
+                    FilterSearch.config.Reset();
+                    break;
             }
         }
 
         //Initialize
-        public FilterMainMenu() : base(new string[] { "Name", "Type" })
+        public FilterMainMenu() : base(new string[] { "Name", "Type", "Reset" })
         {
             filterSearch = new FilterSearchConfig();
         }
