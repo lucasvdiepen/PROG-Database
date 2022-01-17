@@ -28,7 +28,7 @@ namespace PokemonDatabase
         {
             Console.Clear();
             Console.WriteLine("Name: " + pokemon.name);
-            Console.WriteLine("Type: " + string.Join(", ", pokemon.type));
+            Console.WriteLine("Type: " + string.Join(", ", pokemon.types));
         }
     }
 }
