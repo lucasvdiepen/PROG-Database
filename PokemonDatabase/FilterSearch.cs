@@ -28,7 +28,7 @@ namespace PokemonDatabase
 
         public static MenuItem[] SearchByConfig()
         {
-            return null;
+            return config.Search();
         }
 
         private static bool FindInString(string s, string input)

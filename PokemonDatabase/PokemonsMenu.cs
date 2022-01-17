@@ -10,7 +10,7 @@ namespace PokemonDatabase
     {
         public PokemonsMenu(MenuItem[] items) : base(items)
         {
-
+            
         }
 
         public override void PrintMenu()

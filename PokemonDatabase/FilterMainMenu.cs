@@ -49,7 +49,8 @@ namespace PokemonDatabase
             switch(keyInfo.Key)
             {
                 case ConsoleKey.F:
-                    Debug.WriteLine("Should search now");
+                    new PokemonsMenu(FilterSearch.SearchByConfig());
+                    PrintMenu();
                     break;
             }
 
