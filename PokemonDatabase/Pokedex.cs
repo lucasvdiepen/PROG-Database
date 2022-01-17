@@ -15,6 +15,11 @@ namespace PokemonDatabase
             _items = new List<Pokemon>();
         }
 
+        public void InsertFromJson(string json)
+        {
+
+        }
+
         public void AddItem(Pokemon item)
         {
             _items.Add(item);
