@@ -16,14 +16,14 @@ namespace PokemonDatabase
             Setup();
         }
 
-        public override void Setup()
+        private protected override void Setup()
         {
             PrintMenu();
 
             base.Setup();
         }
 
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             Console.Clear();
             Console.WriteLine("Press enter to search");
@@ -31,7 +31,7 @@ namespace PokemonDatabase
             Console.Write("Name: " + input);
         }
 
-        public override bool RunInput(ConsoleKeyInfo keyInfo)
+        private protected override bool RunInput(ConsoleKeyInfo keyInfo)
         {
             switch(keyInfo.Key)
             {

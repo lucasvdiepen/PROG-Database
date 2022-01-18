@@ -8,8 +8,8 @@ namespace PokemonDatabase
 {
     public abstract class SelectMenu : Menu
     {
-        internal MenuItem[] menuItems;
-        internal int selectedId;
+        private protected MenuItem[] menuItems;
+        private protected int selectedId;
 
         public SelectMenu(string[] menuItems)
         {
@@ -37,17 +37,17 @@ namespace PokemonDatabase
             Setup();
         }
 
-        public override void Setup()
+        private protected override void Setup()
         {
             PrintMenu();
 
             base.Setup();
         }
 
-        public abstract void Select(MenuItem menuItem);
+        private protected abstract void Select(MenuItem menuItem);
 
         //Prints all menu items with arrow
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             for (int i = 0; i < menuItems.Length; i++)
             {
@@ -58,7 +58,7 @@ namespace PokemonDatabase
             }
         }
 
-        public override bool RunInput(ConsoleKeyInfo keyInfo)
+        private protected override bool RunInput(ConsoleKeyInfo keyInfo)
         {
             switch(keyInfo.Key)
             {

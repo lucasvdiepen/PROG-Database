@@ -10,7 +10,7 @@ namespace PokemonDatabase
     public class FilterMainMenu : SelectMenu
     {
         //Enter presses
-        public override void Select(MenuItem menuItem)
+        private protected override void Select(MenuItem menuItem)
         {
             switch(menuItem.itemName)
             {
@@ -35,7 +35,7 @@ namespace PokemonDatabase
         }
 
         //Extra prints for this menu
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             Console.Clear();
             Console.WriteLine("Press f to search\n");
@@ -44,7 +44,7 @@ namespace PokemonDatabase
         }
 
         //Extra input for this menu
-        public override bool RunInput(ConsoleKeyInfo keyInfo)
+        private protected override bool RunInput(ConsoleKeyInfo keyInfo)
         {
             switch(keyInfo.Key)
             {

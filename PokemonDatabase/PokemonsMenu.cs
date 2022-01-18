@@ -13,14 +13,14 @@ namespace PokemonDatabase
             
         }
 
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             Console.Clear();
 
             base.PrintMenu();
         }
 
-        public override void Select(MenuItem menuItem)
+        private protected override void Select(MenuItem menuItem)
         {
             new PokemonMenu(menuItem.id);
             PrintMenu();

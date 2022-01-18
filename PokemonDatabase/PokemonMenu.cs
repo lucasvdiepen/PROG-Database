@@ -17,14 +17,14 @@ namespace PokemonDatabase
             Setup();
         }
 
-        public override void Setup()
+        private protected override void Setup()
         {
             PrintMenu();
 
             base.Setup();
         }
 
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             Console.Clear();
             Console.WriteLine("Name: " + pokemon.name);

@@ -9,7 +9,7 @@ namespace PokemonDatabase
     public class FilterTypeMenu : SelectMenu
     {
         //Enter presses
-        public override void Select(MenuItem menuItem)
+        private protected override void Select(MenuItem menuItem)
         {
             PokemonType selectedType = (PokemonType)Enum.Parse(typeof(PokemonType), menuItem.itemName);
 
@@ -25,7 +25,7 @@ namespace PokemonDatabase
 
         }
 
-        public override void PrintMenu()
+        private protected override void PrintMenu()
         {
             Console.Clear();
 
