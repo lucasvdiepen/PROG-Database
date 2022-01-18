@@ -27,7 +27,7 @@ namespace PokemonDatabase
                 {
                     if (!pokemon.types.Contains(types[i])) break;
 
-                    if (i == types.Count) l.Add(new MenuItem(pokemon.id.ToString()));
+                    if (i == types.Count - 1) l.Add(new MenuItem(pokemon.name, pokemon.id));
                 }
             }
 

@@ -8,8 +8,8 @@ namespace PokemonDatabase
 {
     public class MenuItem
     {
-        public int id { get; set; }
-        public string itemName { get; set; }
+        public int id { get; private set; }
+        public string itemName { get; private set; }
 
         public MenuItem(string itemName, int id = -1)
         {
