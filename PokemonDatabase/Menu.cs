@@ -8,13 +8,13 @@ namespace PokemonDatabase
 {
     public abstract class Menu
     {
-        public virtual void Setup()
+        private protected virtual void Setup()
         {
             StartMenu();
         }
 
         //Starts menu input read
-        public void StartMenu()
+        private void StartMenu()
         {
             while(true)
             {
@@ -25,10 +25,10 @@ namespace PokemonDatabase
             }
         }
 
-        public abstract void PrintMenu();
+        private protected abstract void PrintMenu();
 
         //Checks standard menu input
-        public virtual bool RunInput(ConsoleKeyInfo keyInfo)
+        private protected virtual bool RunInput(ConsoleKeyInfo keyInfo)
         {
             switch (keyInfo.Key)
             {
