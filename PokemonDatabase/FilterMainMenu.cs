@@ -18,8 +18,12 @@ namespace PokemonDatabase
                     new FilterNameMenu();
                     PrintMenu();
                     break;
-                case "Type":
+                case "Types":
                     new FilterTypeMenu();
+                    PrintMenu();
+                    break;
+                case "Stats":
+                    new FilterStatsMenu();
                     PrintMenu();
                     break;
                 case "Reset":
@@ -29,7 +33,7 @@ namespace PokemonDatabase
         }
 
         //Initialize
-        public FilterMainMenu() : base(new string[] { "Name", "Type", "Reset" })
+        public FilterMainMenu() : base(new string[] { "Name", "Types", "Stats", "Reset" })
         {
 
         }

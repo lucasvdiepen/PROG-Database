@@ -28,6 +28,17 @@ namespace PokemonDatabase
         Fairy
     }
 
+    public enum PokemonStats
+    {
+        TotalRating,
+        HP,
+        Attack,
+        Defense,
+        SpecialAttack,
+        SpecialDefense,
+        Speed
+    }
+
     public class Ability
     {
         public string name { get; set; }
@@ -41,7 +52,7 @@ namespace PokemonDatabase
         public string name { get; set; }
         public List<PokemonType> types { get; set; }
         public List<Ability> abilities { get; set; }
-        public PokemonStats stats { get; set; }
+        public Dictionary<PokemonStats, int> stats { get; set; }
         public float height { get; set; }
         public float weight { get; set; }
 
