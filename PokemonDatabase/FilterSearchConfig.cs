@@ -24,7 +24,7 @@ namespace PokemonDatabase
             {
                 Pokemon pokemon = l[i];
                 
-                if(FilterType(pokemon) && FilterStats(pokemon))
+                if(FilterType(pokemon))
                 {
 
                 }
@@ -39,13 +39,17 @@ namespace PokemonDatabase
 
         private MenuItem[] ToMenuItems(List<Pokemon> pokemons)
         {
-            
+            List<MenuItem> l = new List<MenuItem>();
+
+            for (int i = 0; i < pokemons.Count; i++) l.Add(new MenuItem(pokemons[i].name, pokemons[i].id));
+
+            return l.ToArray();
         }
 
-        private bool FilterStats(Pokemon pokemon)
+        /*private bool FilterStats(Pokemon pokemon)
         {
             
-        }
+        }*/
 
         private bool FilterType(Pokemon pokemon)
         {
