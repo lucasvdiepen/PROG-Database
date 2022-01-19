@@ -56,12 +56,14 @@ namespace PokemonDatabase
         public float height { get; set; }
         public float weight { get; set; }
 
-        /*public Pokemon(int id, string name, List<PokemonType> types, PokemonStats stats)
+        public int GetStat(PokemonStats pokemonStat)
         {
-            this.id = id;
-            this.name = name;
-            this.types = types;
-            this.stats = stats;
-        }*/
+            if(stats.TryGetValue(pokemonStat, out int stat))
+            {
+                return stat;
+            }
+
+            return -1;
+        }
     }
 }
