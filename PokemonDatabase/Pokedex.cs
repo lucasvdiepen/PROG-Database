@@ -30,7 +30,7 @@ namespace PokemonDatabase
 
         public List<Pokemon> GetAllItems()
         {
-            return _items;
+            return new List<Pokemon>(_items);
         }
 
         public void PrintAllItems()

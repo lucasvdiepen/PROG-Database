@@ -58,18 +58,15 @@ namespace PokemonDatabase
             //Check types condition
             for (int i = 0; i < types.Count; i++)
             {
-                if (!pokemon.types.Contains(types[i]))
+                if (pokemon.types.Contains(types[i]))
                 {
                     count++;
                 }
-
-                if (i == types.Count - 1)
-                {
-                    if (count != types.Count - 1) return false;
-                }
             }
 
-            return true;
+            if (count == types.Count) return true;
+
+            return false;
         }
 
         public void Setup()
