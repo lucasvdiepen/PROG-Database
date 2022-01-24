@@ -57,15 +57,15 @@ namespace PokemonDatabase
                 switch(condition.Value.Key)
                 {
                     case ">=":
-                        if (currentStat < condition.Value.Value) return true;
+                        if (currentStat < condition.Value.Value) return false;
                         break;
                     case "<=":
-                        if (currentStat > condition.Value.Value) return true;
+                        if (currentStat > condition.Value.Value) return false;
                         break;
                 }
             }
 
-            return false;
+            return true;
         }
 
         private bool FilterType(Pokemon pokemon)
