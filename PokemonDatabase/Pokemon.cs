@@ -58,6 +58,17 @@ namespace PokemonDatabase
 
         public int GetStat(PokemonStats pokemonStat)
         {
+            if(pokemonStat == PokemonStats.TotalRating)
+            {
+                int count = 0;
+                foreach (int currentStat in stats.Values.ToList())
+                {
+                    count += currentStat;
+                }
+
+                return count;
+            }
+
             if(stats.TryGetValue(pokemonStat, out int stat))
             {
                 return stat;

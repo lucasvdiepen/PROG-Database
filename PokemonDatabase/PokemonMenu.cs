@@ -28,12 +28,28 @@ namespace PokemonDatabase
         {
             Console.Clear();
             Console.WriteLine("Name: " + pokemon.name);
+            Console.WriteLine("");
+            Console.WriteLine("Id: " + pokemon.id);
+            Console.WriteLine("");
             Console.WriteLine("Type: " + string.Join(", ", pokemon.types));
+            Console.WriteLine("");
+            Console.WriteLine("Height: " + pokemon.height);
+            Console.WriteLine("");
+            Console.WriteLine("Weight: " + pokemon.weight);
+            Console.WriteLine("");
             Console.WriteLine("Stats:");
             Console.WriteLine("");
             foreach(PokemonStats stat in Enum.GetValues(typeof(PokemonStats)).Cast<PokemonStats>())
             {
                 Console.WriteLine(stat.ToString() + ": " + pokemon.GetStat(stat));
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("Abilities:");
+            Console.WriteLine("");
+            foreach (Ability ability in pokemon.abilities)
+            {
+                Console.WriteLine(ability.name + ". Is Hidden: " + ability.isHidden);
             }
         }
     }
