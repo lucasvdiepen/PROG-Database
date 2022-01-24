@@ -9,7 +9,9 @@ namespace PokemonDatabase
     public class FilterSearchConfig
     {
         public List<PokemonType> types;
-        public List<KeyValuePair<PokemonStats, int>> stats;
+        public List<KeyValuePair<PokemonStats, KeyValuePair<string, int>>> stats;
+
+        public PokemonStats statTemp;
 
         public FilterSearchConfig()
         {
@@ -72,12 +74,49 @@ namespace PokemonDatabase
         public void Setup()
         {
             types = new List<PokemonType>();
-            stats = new List<KeyValuePair<PokemonStats, int>>();
+            stats = new List<KeyValuePair<PokemonStats, KeyValuePair<string, int>>>();
         }
 
         public void Reset()
         {
             Setup();
+        }
+
+        public void AddStatCondition(PokemonStats stat, string statOperator, int value)
+        {
+            RemoveStatInList(stat);
+
+            stats.Add(new KeyValuePair<PokemonStats, KeyValuePair<string, int>>(stat, new KeyValuePair<string, int>(statOperator, value)));
+        }
+
+        private void RemoveStatInList(PokemonStats stat)
+        {
+            for (int i = 0; i < stats.Count; i++)
+            {
+                if (stats[i].Key == stat)
+                {
+                    stats.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        public void RemoveStatCondition(PokemonStats stat)
+        {
+            RemoveStatInList(stat);
+        }
+
+        public MenuItem[] GetAllStatConditions()
+        {
+            MenuItem[] l = new MenuItem[stats.Count];
+
+            for(int i = 0; i < stats.Count; i++)
+            {
+                string statConditionText = stats[i].Key.ToString() + " " + stats[i].Value.Key + " " + stats[i].Value.Value.ToString();
+                l[i] = new MenuItem(statConditionText, i);
+            }
+
+            return l;
         }
     }
 }

@@ -77,7 +77,7 @@ namespace PokemonDatabase
                     }
                     break;
                 case ConsoleKey.Enter:
-                    Select(menuItems[selectedId]);
+                    if(menuItems.Length > 0) Select(menuItems[selectedId]);
                     break;
             }
 

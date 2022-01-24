@@ -6,26 +6,27 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public class FilterStatsOperatorMenu : SelectMenu
+    public class FilterCurrentStatsMenu : SelectMenu
     {
-        public FilterStatsOperatorMenu() : base(new string[] { ">=", "<=" })
+        public FilterCurrentStatsMenu() : base(FilterSearch.config.GetAllStatConditions())
         {
-            
-        }
 
-        private protected override void Setup()
-        {
-            base.Setup();
         }
 
         private protected override void Select(MenuItem menuItem)
         {
-            new FilterStatValueMenu(menuItem.itemName);
+            FilterSearch.config.stats.RemoveAt(menuItem.id);
+
+            menuItems = FilterSearch.config.GetAllStatConditions();
+
+            PrintMenu();
         }
 
         private protected override void PrintMenu()
         {
             Console.Clear();
+            Console.WriteLine("Press enter to delete condition");
+            Console.WriteLine("");
 
             base.PrintMenu();
         }

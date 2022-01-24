@@ -9,13 +9,11 @@ namespace PokemonDatabase
     public class FilterStatValueMenu : Menu
     {
         private string input = "";
-        private PokemonStats stat;
         private string statOperator;
         
 
-        public FilterStatValueMenu(PokemonStats stat, string statOperator)
+        public FilterStatValueMenu(string statOperator)
         {
-            this.stat = stat;
             this.statOperator = statOperator;
 
             Setup();
@@ -33,7 +31,7 @@ namespace PokemonDatabase
             Console.Clear();
             Console.WriteLine("Press enter to add condition");
             Console.WriteLine("");
-            Console.WriteLine("Stat: " + stat.ToString());
+            Console.WriteLine("Stat: " + FilterSearch.config.statTemp.ToString());
             Console.WriteLine("");
             Console.WriteLine("Operator: " + statOperator);
             Console.WriteLine("");
@@ -45,8 +43,11 @@ namespace PokemonDatabase
             switch (keyInfo.Key)
             {
                 case ConsoleKey.Enter:
-                    Console.WriteLine("Add new stat condition here");
-                    PrintMenu();
+                    if(input.Length > 0)
+                    {
+                        FilterSearch.config.AddStatCondition(FilterSearch.config.statTemp, statOperator, int.Parse(input));
+                        PrintMenu();
+                    }
                     break;
                 case ConsoleKey.Backspace:
                     if (input.Length > 0)
