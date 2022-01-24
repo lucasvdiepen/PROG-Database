@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    public class FilterStatsMenu : SelectMenu
+    public class FilterStatsOperatorMenu : SelectMenu
     {
-        public FilterStatsMenu() : base(Enum.GetNames(typeof(PokemonStats)))
-        {
+        private PokemonStats stat;
 
+        public FilterStatsOperatorMenu(PokemonStats stat) : base(new string[] { ">=", "<="})
+        {
+            this.stat = stat;
         }
 
         private protected override void Select(MenuItem menuItem)
         {
-            new FilterStatsOperatorMenu((PokemonStats)Enum.Parse(typeof(PokemonStats), menuItem.itemName));
+            new FilterStatValueMenu(stat, menuItem.itemName);
         }
 
         private protected override void PrintMenu()
