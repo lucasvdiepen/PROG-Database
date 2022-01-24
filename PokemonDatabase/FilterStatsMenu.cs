@@ -19,6 +19,7 @@ namespace PokemonDatabase
             {
                 FilterSearch.config.statTemp = result;
                 new FilterStatsOperatorMenu();
+                PrintMenu();
                 return;
             }
 

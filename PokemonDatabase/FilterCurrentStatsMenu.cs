@@ -18,6 +18,7 @@ namespace PokemonDatabase
             FilterSearch.config.stats.RemoveAt(menuItem.id);
 
             menuItems = FilterSearch.config.GetAllStatConditions();
+            if (selectedId >= menuItems.Length) selectedId = menuItems.Length - 1;
 
             PrintMenu();
         }

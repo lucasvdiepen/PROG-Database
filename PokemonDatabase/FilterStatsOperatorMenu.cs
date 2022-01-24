@@ -21,6 +21,7 @@ namespace PokemonDatabase
         private protected override void Select(MenuItem menuItem)
         {
             new FilterStatValueMenu(menuItem.itemName);
+            PrintMenu();
         }
 
         private protected override void PrintMenu()
