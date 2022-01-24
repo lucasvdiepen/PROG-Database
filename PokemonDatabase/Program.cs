@@ -18,11 +18,6 @@ namespace PokemonDatabase
             //database.AddItem(new Pokemon(2, "Blastoise", new List<PokemonType>() { PokemonType.Water }, new PokemonStats(75, 80, 80, 70, 65, 80, 75)));
 
             new FilterMainMenu();
-
-            while(true)
-            {
-                database.RunInput();
-            }
         }
     }
 }

@@ -50,19 +50,5 @@ namespace PokemonDatabase
 
             return null;
         }
-
-        public void RunInput()
-        {
-            if (Console.KeyAvailable)
-            {
-                switch (Console.ReadKey(true).Key)
-                {
-                    case ConsoleKey.A:
-                        Console.Clear();
-                        PrintAllItems();
-                        break;
-                }
-            }
-        }
     }
 }
