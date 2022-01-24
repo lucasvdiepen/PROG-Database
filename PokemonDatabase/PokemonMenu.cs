@@ -29,6 +29,12 @@ namespace PokemonDatabase
             Console.Clear();
             Console.WriteLine("Name: " + pokemon.name);
             Console.WriteLine("Type: " + string.Join(", ", pokemon.types));
+            Console.WriteLine("Stats:");
+            Console.WriteLine("");
+            foreach(PokemonStats stat in Enum.GetValues(typeof(PokemonStats)).Cast<PokemonStats>())
+            {
+                Console.WriteLine(stat.ToString() + ": " + pokemon.GetStat(stat));
+            }
         }
     }
 }

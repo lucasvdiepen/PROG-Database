@@ -26,7 +26,7 @@ namespace PokemonDatabase
             {
                 Pokemon pokemon = l[i];
                 
-                if(FilterType(pokemon))
+                if(FilterType(pokemon) && FilterStats(pokemon))
                 {
 
                 }
@@ -48,10 +48,25 @@ namespace PokemonDatabase
             return l.ToArray();
         }
 
-        /*private bool FilterStats(Pokemon pokemon)
+        private bool FilterStats(Pokemon pokemon)
         {
-            
-        }*/
+            foreach(KeyValuePair<PokemonStats, KeyValuePair<string, int>> condition in stats)
+            {
+                int currentStat = pokemon.GetStat(condition.Key);
+
+                switch(condition.Value.Key)
+                {
+                    case ">=":
+                        if (currentStat < condition.Value.Value) return true;
+                        break;
+                    case "<=":
+                        if (currentStat > condition.Value.Value) return true;
+                        break;
+                }
+            }
+
+            return false;
+        }
 
         private bool FilterType(Pokemon pokemon)
         {

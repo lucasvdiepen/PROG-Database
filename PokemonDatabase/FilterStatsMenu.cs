@@ -27,6 +27,7 @@ namespace PokemonDatabase
             {
                 case "Show current conditions":
                     new FilterCurrentStatsMenu();
+                    PrintMenu();
                     break;
             }
         }
