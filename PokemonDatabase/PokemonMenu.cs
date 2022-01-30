@@ -19,9 +19,12 @@ namespace PokemonDatabase
 
         private protected override void Setup()
         {
-            PrintMenu();
+            if(pokemon != null)
+            {
+                PrintMenu();
 
-            base.Setup();
+                base.Setup();
+            }
         }
 
         private protected override void PrintMenu()
@@ -51,6 +54,18 @@ namespace PokemonDatabase
             {
                 Console.WriteLine(ability.name + ". Is Hidden: " + ability.isHidden);
             }
+        }
+
+        private protected override bool RunInput(ConsoleKeyInfo keyInfo)
+        {
+            switch(keyInfo.Key)
+            {
+                case ConsoleKey.Delete:
+                    Program.database.RemoveItem(pokemon.id);
+                    return true;
+            }
+
+            return base.RunInput(keyInfo);
         }
     }
 }

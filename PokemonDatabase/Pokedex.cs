@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace PokemonDatabase
         public void AddItem(Pokemon item)
         {
             _items.Add(item);
+            SaveToJson();
         }
 
         public void RemoveItem(int id)
@@ -35,9 +37,17 @@ namespace PokemonDatabase
                 if(_items[i].id == id)
                 {
                     _items.RemoveAt(i);
+                    SaveToJson();
                     return;
                 }
             }
+        }
+
+        private void SaveToJson()
+        {
+            string json = JsonConvert.SerializeObject(_items, new Newtonsoft.Json.Converters.StringEnumConverter());
+
+            File.WriteAllText("pokemons.json", json);
         }
 
         public List<Pokemon> GetAllItems()

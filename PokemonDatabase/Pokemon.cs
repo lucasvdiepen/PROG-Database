@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
-    [DataContract]
+    [Serializable]
     public enum PokemonType
     {
         Normal,
@@ -30,7 +30,7 @@ namespace PokemonDatabase
         Fairy
     }
 
-    [DataContract]
+    [Serializable]
     public enum PokemonStats
     {
         TotalRating,
@@ -53,7 +53,6 @@ namespace PokemonDatabase
         public int slot { get; set; }
     }
 
-    [DataContract]
     public class Pokemon
     {
         [DataMember]
