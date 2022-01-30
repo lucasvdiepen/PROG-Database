@@ -76,5 +76,16 @@ namespace PokemonDatabase
 
             return -1;
         }
+
+        public Pokemon(int id, string name, List<PokemonType> types, List<Ability> abilities, Dictionary<PokemonStats, int> stats, float height, float weight)
+        {
+            this.id = id;
+            this.name = name;
+            this.types = types;
+            this.abilities = abilities;
+            this.stats = stats;
+            this.height = height;
+            this.weight = weight;
+        }
     }
 }

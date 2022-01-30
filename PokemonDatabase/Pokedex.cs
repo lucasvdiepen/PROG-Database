@@ -28,6 +28,18 @@ namespace PokemonDatabase
             _items.Add(item);
         }
 
+        public void RemoveItem(int id)
+        {
+            for(int i = 0; i < _items.Count; i++)
+            {
+                if(_items[i].id == id)
+                {
+                    _items.RemoveAt(i);
+                    return;
+                }
+            }
+        }
+
         public List<Pokemon> GetAllItems()
         {
             return new List<Pokemon>(_items);
