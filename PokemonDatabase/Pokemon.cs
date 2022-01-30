@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PokemonDatabase
 {
+    [DataContract]
     public enum PokemonType
     {
         Normal,
@@ -28,6 +30,7 @@ namespace PokemonDatabase
         Fairy
     }
 
+    [DataContract]
     public enum PokemonStats
     {
         TotalRating,
@@ -39,21 +42,33 @@ namespace PokemonDatabase
         Speed
     }
 
+    [DataContract]
     public class Ability
     {
+        [DataMember]
         public string name { get; set; }
+        [DataMember]
         public bool isHidden { get; set; }
+        [DataMember]
         public int slot { get; set; }
     }
 
+    [DataContract]
     public class Pokemon
     {
+        [DataMember]
         public int id { get; set; }
+        [DataMember]
         public string name { get; set; }
+        [DataMember]
         public List<PokemonType> types { get; set; }
+        [DataMember]
         public List<Ability> abilities { get; set; }
+        [DataMember]
         public Dictionary<PokemonStats, int> stats { get; set; }
+        [DataMember]
         public float height { get; set; }
+        [DataMember]
         public float weight { get; set; }
 
         public int GetStat(PokemonStats pokemonStat)
