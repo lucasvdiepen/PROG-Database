@@ -36,7 +36,7 @@ namespace PokemonDatabase.Menus
             switch(keyInfo.Key)
             {
                 case ConsoleKey.Enter:
-                    new PokemonsMenu(FilterSearch.SearchByName(input));
+                    new PokemonsMenu(Filter.FilterSearch.SearchByName(input));
                     PrintMenu();
                     break;
                 case ConsoleKey.Backspace:

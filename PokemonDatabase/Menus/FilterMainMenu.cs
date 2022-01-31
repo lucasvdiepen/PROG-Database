@@ -27,7 +27,7 @@ namespace PokemonDatabase.Menus
                     PrintMenu();
                     break;
                 case "Reset":
-                    FilterSearch.config.Reset();
+                    Filter.FilterSearch.config.Reset();
                     break;
             }
         }
@@ -53,7 +53,7 @@ namespace PokemonDatabase.Menus
             switch(keyInfo.Key)
             {
                 case ConsoleKey.F:
-                    new PokemonsMenu(FilterSearch.SearchByConfig());
+                    new PokemonsMenu(Filter.FilterSearch.SearchByConfig());
                     PrintMenu();
                     break;
             }

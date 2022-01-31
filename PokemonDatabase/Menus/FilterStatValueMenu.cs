@@ -31,7 +31,7 @@ namespace PokemonDatabase.Menus
             Console.Clear();
             Console.WriteLine("Press enter to add condition");
             Console.WriteLine("");
-            Console.WriteLine("Stat: " + FilterSearch.config.statTemp.ToString());
+            Console.WriteLine("Stat: " + Filter.FilterSearch.config.statTemp.ToString());
             Console.WriteLine("");
             Console.WriteLine("Operator: " + statOperator);
             Console.WriteLine("");
@@ -45,7 +45,7 @@ namespace PokemonDatabase.Menus
                 case ConsoleKey.Enter:
                     if(input.Length > 0)
                     {
-                        FilterSearch.config.AddStatCondition(FilterSearch.config.statTemp, statOperator, int.Parse(input));
+                        Filter.FilterSearch.config.AddStatCondition(Filter.FilterSearch.config.statTemp, statOperator, int.Parse(input));
                         PrintMenu();
                     }
                     break;

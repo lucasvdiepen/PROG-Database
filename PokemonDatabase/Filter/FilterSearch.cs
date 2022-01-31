@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PokemonDatabase
+namespace PokemonDatabase.Filter
 {
     public static class FilterSearch
     {

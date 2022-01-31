@@ -17,7 +17,7 @@ namespace PokemonDatabase.Menus
         {
             if(Enum.TryParse<PokemonStats>(menuItem.itemName, out PokemonStats result))
             {
-                FilterSearch.config.statTemp = result;
+                Filter.FilterSearch.config.statTemp = result;
                 new FilterStatsOperatorMenu();
                 PrintMenu();
                 return;

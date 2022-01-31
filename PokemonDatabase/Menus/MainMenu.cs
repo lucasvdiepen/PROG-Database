@@ -8,8 +8,6 @@ namespace PokemonDatabase.Menus
 {
     public class MainMenu : SelectMenu
     {
-        private string input;
-
         public MainMenu() : base(new string[] { "Show all pokemons", "Add new pokemon", "Filter" })
         {
 

@@ -8,16 +8,16 @@ namespace PokemonDatabase.Menus
 {
     public class FilterCurrentStatsMenu : SelectMenu
     {
-        public FilterCurrentStatsMenu() : base(FilterSearch.config.GetAllStatConditions())
+        public FilterCurrentStatsMenu() : base(Filter.FilterSearch.config.GetAllStatConditions())
         {
 
         }
 
         private protected override void Select(MenuItem menuItem)
         {
-            FilterSearch.config.stats.RemoveAt(menuItem.id);
+            Filter.FilterSearch.config.stats.RemoveAt(menuItem.id);
 
-            menuItems = FilterSearch.config.GetAllStatConditions();
+            menuItems = Filter.FilterSearch.config.GetAllStatConditions();
             if (selectedId >= menuItems.Length) selectedId = menuItems.Length - 1;
 
             PrintMenu();

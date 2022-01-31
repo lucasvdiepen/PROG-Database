@@ -13,8 +13,8 @@ namespace PokemonDatabase.Menus
         {
             PokemonType selectedType = (PokemonType)Enum.Parse(typeof(PokemonType), menuItem.itemName);
 
-            if (FilterSearch.config.types.Contains(selectedType)) FilterSearch.config.types.Remove(selectedType);
-            else FilterSearch.config.types.Add(selectedType);
+            if (Filter.FilterSearch.config.types.Contains(selectedType)) Filter.FilterSearch.config.types.Remove(selectedType);
+            else Filter.FilterSearch.config.types.Add(selectedType);
 
             PrintMenu();
         }
@@ -34,7 +34,7 @@ namespace PokemonDatabase.Menus
                 if (selectedId == i) Console.Write(">");
                 else Console.Write(" ");
 
-                if (FilterSearch.config.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i].itemName))) Console.ForegroundColor = ConsoleColor.Green;
+                if (Filter.FilterSearch.config.types.Contains((PokemonType)Enum.Parse(typeof(PokemonType), menuItems[i].itemName))) Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("  " + menuItems[i].itemName);
                 Console.ResetColor();
             }
