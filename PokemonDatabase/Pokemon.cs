@@ -51,6 +51,12 @@ namespace PokemonDatabase
         public bool isHidden { get; set; }
         [DataMember]
         public int slot { get; set; }
+
+        public Ability(string name, bool isHidden)
+        {
+            this.name = name;
+            this.isHidden = isHidden;
+        }
     }
 
     public class Pokemon

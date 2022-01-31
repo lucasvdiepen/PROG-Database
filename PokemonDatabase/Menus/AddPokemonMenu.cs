@@ -19,8 +19,8 @@ namespace PokemonDatabase.Menus
 
     public class AddPokemonMenu : Menu
     {
-        private InputField[] inputs = new InputField[11];
-        private int[] numericInputs = { 0, 3, 4, 5, 6, 7, 8, 9, 10 };
+        private InputField[] inputs = new InputField[12];
+        private int[] numericInputs = { 0, 3, 4, 5, 6, 7, 8, 10, 11 };
         private int currentInput = 0;
 
         public AddPokemonMenu() : base()
@@ -72,9 +72,11 @@ namespace PokemonDatabase.Menus
             Console.WriteLine("");
             Console.WriteLine("Speed: " + inputs[8].input);
             Console.WriteLine("");
-            Console.WriteLine("Height: " + inputs[9].input);
+            Console.WriteLine("Ability name: " + inputs[9].input);
             Console.WriteLine("");
-            Console.WriteLine("Weight: " + inputs[10].input);
+            Console.WriteLine("Height: " + inputs[10].input);
+            Console.WriteLine("");
+            Console.WriteLine("Weight: " + inputs[11].input);
         }
 
         private protected override bool RunInput(ConsoleKeyInfo keyInfo)
@@ -85,8 +87,9 @@ namespace PokemonDatabase.Menus
                     currentInput++;
                     if (currentInput >= inputs.Length)
                     {
-
+                        //Create new ability list
                         List<Ability> newAbilities = new List<Ability>();
+                        newAbilities.Add(new Ability(inputs[9].input, false));
 
                         //Create new stats dictionary
                         Dictionary<PokemonStats, int> newStats = new Dictionary<PokemonStats, int>();
@@ -98,7 +101,7 @@ namespace PokemonDatabase.Menus
                         newStats.Add(PokemonStats.Speed, int.Parse(inputs[8].input));
 
                         //Add pokemon here
-                        Pokedex.AddItem(new Pokemon(int.Parse(inputs[0].input), inputs[1].input, StringArrayToPokemonTypes(inputs[2].input.Split(",")), newAbilities, newStats, float.Parse(inputs[9].input), float.Parse(inputs[10].input)));
+                        Pokedex.AddItem(new Pokemon(int.Parse(inputs[0].input), inputs[1].input, StringArrayToPokemonTypes(inputs[2].input.Split(",")), newAbilities, newStats, float.Parse(inputs[10].input), float.Parse(inputs[11].input)));
 
                         return true;
                     }
