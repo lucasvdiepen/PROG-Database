@@ -25,6 +25,14 @@ namespace PokemonDatabase.Menus
             switch(menuItem.itemName)
             {
                 case "Show all pokemons":
+                    List<MenuItem> menuItems = new List<MenuItem>();
+                    foreach(Pokemon pokemon in Program.database.GetAllItems())
+                    {
+                        menuItems.Add(new MenuItem(pokemon.name, pokemon.id));
+                    }
+
+                    new PokemonsMenu(menuItems.ToArray());
+                    PrintMenu();
                     break;
                 case "Add new pokemon":
                     new AddPokemonMenu();
