@@ -12,7 +12,7 @@ namespace PokemonDatabase.Menus
 
         public PokemonMenu(int pokemonID)
         {
-            pokemon = Program.database.GetPokemonById(pokemonID);
+            pokemon = Pokedex.GetPokemonById(pokemonID);
 
             Setup();
         }
@@ -61,7 +61,7 @@ namespace PokemonDatabase.Menus
             switch(keyInfo.Key)
             {
                 case ConsoleKey.Delete:
-                    Program.database.RemoveItem(pokemon.id);
+                    Pokedex.RemoveItem(pokemon.id);
                     return true;
             }
 

@@ -20,7 +20,7 @@ namespace PokemonDatabase.Filter
 
         public MenuItem[] Search()
         {
-            List<Pokemon> l = Program.database.GetAllItems();
+            List<Pokemon> l = Pokedex.GetAllItems();
 
             for (int i = l.Count - 1; i >= 0; i--)
             {

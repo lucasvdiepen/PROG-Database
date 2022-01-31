@@ -12,7 +12,7 @@ namespace PokemonDatabase.Filter
 
         public static MenuItem[] SearchByName(string name)
         {
-            List<Pokemon> pokemons = Program.database.GetAllItems();
+            List<Pokemon> pokemons = Pokedex.GetAllItems();
             List<MenuItem> menuItemsList = new List<MenuItem>();
 
             foreach(Pokemon pokemon in pokemons)

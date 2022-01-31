@@ -98,7 +98,7 @@ namespace PokemonDatabase.Menus
                         newStats.Add(PokemonStats.Speed, int.Parse(inputs[8].input));
 
                         //Add pokemon here
-                        Program.database.AddItem(new Pokemon(int.Parse(inputs[0].input), inputs[1].input, StringArrayToPokemonTypes(inputs[2].input.Split(",")), newAbilities, newStats, float.Parse(inputs[9].input), float.Parse(inputs[10].input)));
+                        Pokedex.AddItem(new Pokemon(int.Parse(inputs[0].input), inputs[1].input, StringArrayToPokemonTypes(inputs[2].input.Split(",")), newAbilities, newStats, float.Parse(inputs[9].input), float.Parse(inputs[10].input)));
 
                         return true;
                     }

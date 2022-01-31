@@ -8,29 +8,29 @@ using Newtonsoft.Json;
 
 namespace PokemonDatabase
 {
-    public class Pokedex
+    public static class Pokedex
     {
-        private List<Pokemon> _items;
+        private static List<Pokemon> _items;
 
-        public Pokedex()
+        public static void Setup()
         {
             _items = new List<Pokemon>();
         }
 
-        public void InsertFromJson(string json)
+        public static void InsertFromJson(string json)
         {
             Pokemon[] pokemonsFromJson = JsonConvert.DeserializeObject<Pokemon[]>(json);
 
             _items.AddRange(pokemonsFromJson);
         }
 
-        public void AddItem(Pokemon item)
+        public static void AddItem(Pokemon item)
         {
             _items.Add(item);
             SaveToJson();
         }
 
-        public void RemoveItem(int id)
+        public static void RemoveItem(int id)
         {
             for(int i = 0; i < _items.Count; i++)
             {
@@ -43,19 +43,19 @@ namespace PokemonDatabase
             }
         }
 
-        private void SaveToJson()
+        private static void SaveToJson()
         {
             string json = JsonConvert.SerializeObject(_items, new Newtonsoft.Json.Converters.StringEnumConverter());
 
             File.WriteAllText("pokemons.json", json);
         }
 
-        public List<Pokemon> GetAllItems()
+        public static List<Pokemon> GetAllItems()
         {
             return new List<Pokemon>(_items);
         }
 
-        public void PrintAllItems()
+        public static void PrintAllItems()
         {
             foreach(Pokemon pokemon in GetAllItems())
             {
@@ -63,7 +63,7 @@ namespace PokemonDatabase
             }
         }
 
-        public Pokemon GetPokemonById(int id)
+        public static Pokemon GetPokemonById(int id)
         {
             for(int i = 0; i < _items.Count; i++)
             {
